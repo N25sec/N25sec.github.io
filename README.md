@@ -1,3 +1,2 @@
-# N25 Security Research Blog
-
-> First post, in progress
+# N25 Security Research Blog Repo
+In development, blog posts incoming
