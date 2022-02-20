@@ -1,3 +1,5 @@
 title: N25 Security Research Blog
 description: Blog by N25sec featuring vulnerabilities, writeups and intersting behaviour 
 theme: jekyll-theme-hacker
+github:
+  is_project_page: false
