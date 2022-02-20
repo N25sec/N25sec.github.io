@@ -1,12 +1,18 @@
-<!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
-
 <!-- Setup theme-color -->
 {% include head-custom-theme-colors.html %}
 
 <!-- Setup Google Analytics -->
 {% include head-custom-google-analytics.html %}
 
-<!-- You can set your favicon here -->
 <!-- link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}" -->
-
-<!-- end custom head snippets -->
+<div class="header-info">
+  <span class="header-info-name">{{ site.title }}</span>
+  <span class="header-info-desc">{{ site.description }}</span>
+</div>
+<nav class="header-nav">
+  <ul class="header-main-nav">
+  {% for item in site.data.menus %}
+    <li class="header-main-nav-item"><a href="{% if item.absoluteUrl != true %}{{ site.baseurl }}/{% endif %}{{ item.url }}">{% if item.default %}{{ site.data.lang[site.language][item.default] }}{% else %}{{ item.title }}{% endif %}</a></li>
+  {% endfor %}
+  </ul>
+</nav>

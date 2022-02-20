@@ -1,5 +1,8 @@
 title: N25 Security Research Blog
 name: N25
+domain: n25.uk
+base: ""
+url: "https://n25.uk"
 description: Blog by N25sec featuring vulnerabilities, writeups and intersting behaviour 
 theme: jekyll-theme-hacker
 twitter_username: n25sec
