@@ -1,8 +1,27 @@
 title: N25 Security Research Blog
+name: N25
 description: Blog by N25sec featuring vulnerabilities, writeups and intersting behaviour 
 theme: jekyll-theme-hacker
 twitter_username: n25sec
 github_username: n25sec
 github:
-  twitter: https://twitter.com/n25sec
   is_project_page: false
+language: en
+
+# Category settings
+jekyll-archives:
+  enabled: 
+    - categories
+    - tags
+  layout: archive
+  permalinks:
+    category: /category/:name/
+    tag: /tag/:name/
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-archives
+  - jekyll-seo-tag
