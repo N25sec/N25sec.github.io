@@ -4,4 +4,5 @@ theme: jekyll-theme-hacker
 twitter_username: n25sec
 github_username: n25sec
 github:
+  twitter: https://twitter.com/n25sec
   is_project_page: false
