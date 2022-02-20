@@ -4,5 +4,5 @@ layout: default
 <h1>N25</h1>
 {% for post in site.posts %}
     <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-    <p><small><strong>{{ post.date | date: "%d %M %Y" }}</strong>{{ post.category }}</small></p>
+    <p><small><strong>{{ post.date | date: "%d %B %Y" }}</strong>{{ post.category }}</small></p>
 {% endfor %}
