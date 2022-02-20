@@ -1,11 +1,8 @@
-- default: menu_index
+- title: Blog
   url:   ""
 
 - default: menu_category
   url:   "category"
-
-- title: "Projects"
-  url: "projects"
 
 - default: menu_about
   url:   "about"
