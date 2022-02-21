@@ -16,7 +16,7 @@ title: Categories
     <a name="{{ category_name | slugize }}"></a>
     {% for post in site.categories[category_name] %}
     <article class="archive-item">
-      <h4><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h4> | {{ post.date | date: "%d %B %Y" }}
+      <h4><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a> | <small>{{ page.date | date: "%d %B %Y" }}</small></h4>
     </article>
     {% endfor %}
   </div>
