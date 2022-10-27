@@ -4,7 +4,7 @@ domain: n25.uk
 base: ""
 url: "https://n25.uk"
 description: "" 
-theme: jekyll-theme-hacker
+remote_theme: "mmistakes/minimal-mistakes
 twitter_username: n25sec
 github_username: n25sec
 github:
@@ -28,3 +28,4 @@ plugins:
   - jekyll-sitemap
   - jekyll-archives
   - jekyll-seo-tag
+  - jekyll-include-cache
