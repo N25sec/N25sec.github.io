@@ -11,7 +11,10 @@
 
 # Name of website
 title: N25 Security Blog
-
+name: N25
+domain: n25.uk
+base: ""
+url: "https://n25.uk"
 # Your name to show in the footer
 author: N25
 
