@@ -23,7 +23,7 @@ author: N25
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
+  # About Me: "aboutme"
   # Resources:
     # - Beautiful Jekyll: "https://beautifuljekyll.com"
     # - Learn markdown: "https://www.markdowntutorial.com/"
@@ -230,7 +230,7 @@ date_format: "%B %-d, %Y"
 timezone: "Europe/London"
 markdown: kramdown
 highlighter: rouge
-permalink: /title/
+permalink: /:title/
 paginate: 5
 
 kramdown:
