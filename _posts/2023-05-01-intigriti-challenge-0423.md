@@ -1,10 +1,6 @@
 ---
 layout: post
 title: Intigriti Challenge 0423 Writeup
-subtitle: Writeup for the Intigriti 0423 Challenge
-cover-img: /assets/img/path.jpg
-thumbnail-img: /assets/img/thumb.png
-share-img: /assets/img/path.jpg
 tags: [intigriti, challenge, ctf]
 ---
 
