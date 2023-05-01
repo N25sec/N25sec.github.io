@@ -10,23 +10,20 @@
 ############################
 
 # Name of website
-title: N25 Security Blog
-name: N25
-domain: n25.uk
-base: ""
-url: "https://n25.uk"
+title: My Website
+
 # Your name to show in the footer
-author: N25
+author: Some Person
 
 ###############################################
 # --- List of links in the navigation bar --- #
 ###############################################
 
-navbar-links:
+  # navbar-links:
   # About Me: "aboutme"
   # Resources:
-    # - Beautiful Jekyll: "https://beautifuljekyll.com"
-    # - Learn markdown: "https://www.markdowntutorial.com/"
+  # - Beautiful Jekyll: "https://beautifuljekyll.com"
+  #  - Learn markdown: "https://www.markdowntutorial.com/"
   # Author's home: "https://deanattali.com"
 
 ################
@@ -52,14 +49,36 @@ round-avatar: true
 # Select the social network links that you want to show in the footer.
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
-  # email: ""
+  # email: "someone@example.com"
   rss: true  # remove this line if you don't want to show an RSS link at the bottom
-  github: N25Sec
-  twitter: N25Sec
+    # facebook: deanattali
+  github: N25sec
+    # twitter: daattali
+    # patreon: DeanAttali
+    # youtube: c/daattali
+#  medium: yourname
+#  reddit: yourname
+#  linkedin: daattali
+#  xing: yourname
+#  stackoverflow: "3943160/daattali"
+#  snapchat: deanat78
+#  instagram: deanat78
+#  spotify: yourname
+#  telephone: +14159998888
+#  steam: deanat78
+#  twitch: yourname
+#  yelp: yourname
+#  telegram: yourname
+#  calendly: yourname
+  mastodon: infosec.exchange/@n25
+#  ORCID: your ORCID ID
+#  google-scholar: your google scholar
+#  discord: invite/invite_code or users/userid
+#  kaggle: yourname
+#  hackerrank: yourname
 
 # If you want your website to generate an RSS feed, provide a description
 # The URL for the feed will be https://<your_website>/feed.xml
-rss-description: N25 Security Blog
 
 ###########################
 # --- General options --- #
@@ -67,14 +86,14 @@ rss-description: N25 Security Blog
 
 # Select which social network share links to show in posts
 share-links-active:
-  twitter: true
+  twitter: false
   facebook: false
   linkedin: false
   vk: false
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-# url-pretty: ""
+url-pretty: "n25.uk"
 
 # Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
 excerpt_length: 50
@@ -139,11 +158,8 @@ footer-hover-col: "#0085A1"
 # --- Web Analytics Section --- #
 #################################
 
-# Fill in your Google Analytics gtag.js ID to track your website using gtag
-#gtag: ""
-
-# Fill in your Google Analytics ID to track your website using Google Analytics
-#google_analytics: ""
+# Fill in your Google Analytics tag ID (or "Measurement ID") to track your website usage
+#gtag: "G-XXXXXXXXXX"
 
 # Fill in your Cloudflare Analytics beacon token to track your website using Cloudflare Analytics
 #cloudflare_analytics: ""
@@ -158,6 +174,11 @@ footer-hover-col: "#0085A1"
 #  site_id: "9"
 #  uri: "demo.wiki.pro"
 #  opt-out: true
+
+# Gogle Universal Analytics ID -- deprecated
+# As of July 2023 this is no longer supported by Google! If you are still using `google_analytics`,
+# you should switch to using the `gtag` field above instead.
+#google_analytics: "UA-XXXXXXXX-X"
 
 ####################
 # --- Comments --- #
@@ -230,7 +251,7 @@ date_format: "%B %-d, %Y"
 timezone: "Europe/London"
 markdown: kramdown
 highlighter: rouge
-permalink: /:title/
+permalink: /:year-:month-:day-:title/
 paginate: 5
 
 kramdown:
@@ -244,7 +265,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      comments: false  # add comments to all blog posts
+      comments: true  # add comments to all blog posts
       social-share: true # add social media sharing buttons to all blog posts
   -
     scope:
@@ -267,4 +288,6 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
 
+# Beautiful Jekyll / Dean Attali
+# 2fc73a3a967e97599c9763d05e564189
 
