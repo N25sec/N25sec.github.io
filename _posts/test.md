@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Test Post
+title: "Test Post"
 subtitle: Subtitle
 # cover-img:
 # thumbnail-img: /assets/img/thumb.png
