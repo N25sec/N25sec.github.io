@@ -10,12 +10,16 @@ This challenge is based around the vulnerability that arises when loose comparis
 
 The challenge begins with a login portal for an Italian brick sales site `https://challenge-0423.intigriti.io/challenge.php`, which contains sample credentials for us to use: `strange:monkey`. 
 
+![Challenge Login](/assets/img/ic0423-login.png)
+
 Authentication is achieved via a POST to `/login.php`, followed by a 302 redirect to `/dashboard.php`. The response from `/login.php` set two cookies:
 ```http
 Cookie: username=strange; account_type=dqwe13fdsfq2gys388
 ```
 
 The dashboard appears to be a fairly simple page with only links to purchase different 'bricks' which happens to redirect to some tastefully chosen meme music videos. As the dashboard seems lacking in functionality for us to exploit, let's take a step back.
+
+![Challenge Dashboard](/assets/img/ic0423-dashboard.png)
 
 Now that we know what the application flow looks like using valid credentials, lets clear the cookies and head back to the login screen at `/challenge.php`. When logging in this time, use likely invalid credentials such as `notarealuser:notarealpassword` and observe the new redirect we receive to `/index_error.php?error=invalid username or password`. 
 The `error` parameter seems like a likely candidate for a first exploitation attempt for Reflected XSS as the error value `invalid username or password`, but when trying the quintessential `<script>alert(document.domain)</script>` we receive a popup. It can't be that easy for an intigriti challenge, so we will log this one and see if it's useful later on. 
@@ -40,6 +44,8 @@ For more information on Type Juggling see this handy OWASP guide: https://owasp.
 The MD5 magic hash that we could use to bypass the security check present on `/dashboard.php` can be calculated by automating the testing of many input strings, or found from an existing hash table such as the one provided by John Hammond here: https://github.com/JohnHammond/ctf-katana#php 
 
 Replacing the `account_type` cookie parameter value with `240610708`, the plaintext of a magic hash value, now changes the response received from `/dashboard.php`. A 4th item has been added to the dashboard, along with a `<h3>` tag referencing `custom_image.php`: `<h3 id="custom_image.php - try to catch the flag.txt ;)">`. This appears to be the next step in the challenge. 
+
+![Challenge Goldwall](/assets/img/ic0423-goldwall.png)
 
 ## Local File Inclusion
 Making a GET request to `/custom_image.php` returns an `<img>` tag with the src set to the `data:` scheme containing base64 encoded image data. It is odd for a PHP file to be used to serve static content such as this, but with no other parameters provided there is no clear method of modifying the content it returns. 
@@ -109,6 +115,8 @@ if(!isset($_COOKIE["username"])){
 }
 ?>
 ```
+![Challenge Admin](/assets/img/ic0423-admin.png)
+
 The second php code snippet appears to have an OS Command Injection vulnerability as it is placing the `$SERVER["HTTP_USER_AGENT"]` into the php command `shell_exec()` albeit with some filtering done beforehand.
 ```php
 <?php
