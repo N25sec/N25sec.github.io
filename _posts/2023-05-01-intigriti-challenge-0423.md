@@ -8,7 +8,7 @@ Firstly, I would like to thank Intigriti and strangeMMonkey1 for this month's ch
 
 This challenge is based around the vulnerability that arises when loose comparison is used within security controls and continues on to exploit local file inclusion and an os command injection vulnerability. 
 
-The challenge begins with a login portal for an Italian brick sales site `https://challenge-0423.intigriti.io/challenge.php`, which contains sample credentials for us to use: `strange:monkey`. 
+The challenge begins with a login portal for an Italian brick sales site [https://challenge-0423.intigriti.io/challenge.php](https://challenge-0423.intigriti.io/challenge.php), which contains sample credentials for us to use: `strange:monkey`. 
 
 ![Challenge Login](/assets/img/ic0423-login.png)
 
@@ -40,8 +40,8 @@ In order to bypass this security control, it seems that we will have to provide 
 
 ## Magic Hashes
 There is a concept of 'Magic Hashes', where MD5, MD4 and SHA1 hashes can be generated in the format of scientific notation such as '0e34...' consisting of only numerical values after the 'e'. When these values are used within a loose comparison, they are interpreted as a number rather than a string, and the equation is evaluated as a numeric comparison. As '0e34...' will always equal 0 (0 to the power of anything is always 0) we can use this to cause PHP to compare it's MD5 string value to our '0'. Within PHP, converting a string value to an integer will also equal '0' if the string does not begin with a number so our comparison becomes '0' == '0', returning TRUE. 
-For more information on Type Juggling see this handy OWASP guide: https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf
-The MD5 magic hash that we could use to bypass the security check present on `/dashboard.php` can be calculated by automating the testing of many input strings, or found from an existing hash table such as the one provided by John Hammond here: https://github.com/JohnHammond/ctf-katana#php 
+For more information on Type Juggling see this handy OWASP guide: [https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf](https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf)
+The MD5 magic hash that we could use to bypass the security check present on `/dashboard.php` can be calculated by automating the testing of many input strings, or found from an existing hash table such as the one provided by John Hammond here: [https://github.com/JohnHammond/ctf-katana#php](https://github.com/JohnHammond/ctf-katana#php)
 
 Replacing the `account_type` cookie parameter value with `240610708`, the plaintext of a magic hash value, now changes the response received from `/dashboard.php`. A 4th item has been added to the dashboard, along with a `<h3>` tag referencing `custom_image.php`: `<h3 id="custom_image.php - try to catch the flag.txt ;)">`. This appears to be the next step in the challenge. 
 
